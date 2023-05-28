@@ -25,6 +25,7 @@ use App\Http\Controllers\TagsController;
 
 Route::prefix('category/')->name('category.')->group(function () {
     Route::get('index', [CategoryController::class, 'index'])->name('index');
+    Route::get('detail/{id}', [CategoryController::class, 'detail'])->name('detail');
     Route::post('store', [CategoryController::class, 'store'])->name('store');
     Route::post('update/{id}', [CategoryController::class, 'update'])->name('update');
     Route::delete('delete/{id}', [CategoryController::class, 'delete'])->name('delete');
@@ -32,6 +33,7 @@ Route::prefix('category/')->name('category.')->group(function () {
 
 Route::prefix('tags/')->name('tags.')->group(function () {
     Route::get('index', [TagsController::class, 'index'])->name('index');
+    Route::get('detail/{id}', [CategoryController::class, 'detail'])->name('detail');
     Route::post('store', [TagsController::class, 'store'])->name('store');
     Route::post('update/{id}', [TagsController::class, 'update'])->name('update');
     Route::delete('delete/{id}', [TagsController::class, 'delete'])->name('delete');
@@ -39,6 +41,7 @@ Route::prefix('tags/')->name('tags.')->group(function () {
 
 Route::prefix('posts/')->name('posts.')->group(function () {
     Route::get('index', [PostsController::class, 'index'])->name('index');
+    Route::get('detail/{id}', [CategoryController::class, 'detail'])->name('detail');
     Route::post('store', [PostsController::class, 'store'])->name('store');
     Route::post('update/{id}', [PostsController::class, 'update'])->name('update');
     Route::delete('delete/{id}', [PostsController::class, 'delete'])->name('delete');

@@ -13,6 +13,12 @@ class TagsController extends Controller
         return response()->json($tag);
     }
 
+    public function detail ($id) {
+        $tag = Tags::find($id);
+        if(!$tag) return response()->json(["error" => true,"message" => "Tags data not found"]);
+        return response()->json($tag);
+    }
+
     public function store (Request $request) {
         $validator = Validator::make($request->all(), [
             'tag_name' => 'required'

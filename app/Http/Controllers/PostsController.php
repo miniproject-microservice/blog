@@ -13,6 +13,12 @@ class PostsController extends Controller
         return response()->json($post);
     }
 
+    public function detail ($id) {
+        $post = Posts::find($id);
+        if(!$post) return response()->json(["error" => true,"message" => "Posts data not found"]);
+        return response()->json($post);
+    }
+
     public function store (Request $request) {
         $validator = Validator::make($request->all(), [
             'author_id' => 'required',

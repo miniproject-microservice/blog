@@ -13,6 +13,12 @@ class CategoryController extends Controller
         return response()->json($cat);
     }
 
+    public function detail ($id) {
+        $cat = Category::find($id);
+        if(!$cat) return response()->json(["error" => true,"message" => "Category data not found"]);
+        return response()->json($cat);
+    }
+
     public function store (Request $request) {
         $validator = Validator::make($request->all(), [
             'cat_name' => 'required'
