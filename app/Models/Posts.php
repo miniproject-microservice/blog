@@ -12,9 +12,14 @@ class Posts extends Model
     protected $table = "posts";
 
     protected $fillable = [
-        'author_id',
         'category_id',
         'title',
-        'desc'
+        'desc',
+        'tags'
     ];
+
+    public function category()
+    {
+        return $this->hasOne(Category::class, 'id', 'category_id');
+    }
 }

@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('author_id');
             $table->unsignedBigInteger('category_id');
             $table->string('title');
             $table->text('desc');
+            $table->string('tags');
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('category');
